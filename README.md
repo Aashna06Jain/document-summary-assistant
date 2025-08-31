@@ -38,10 +38,10 @@ A web application that allows users to **upload documents** (PDF, DOCX, TXT, JPG
 ## 🔹 Backend Setup (FastAPI)
 
 1. **Clone the backend repository**
-```bash
-git clone <backend-repo-url>
-cd backend
-```
+   ```bash
+      git clone <backend-repo-url>
+      cd backend
+   ```
 2. **Install dependencies**
    ```bash
    pip install -r requirements.txt
@@ -109,3 +109,12 @@ cd backend
 ## 📬 Contact
 
 For questions or contributions, open an issue or submit a pull request.
+
+## Live Website Link
+
+**https://document-summary-assistant-ty1a.vercel.app/**
+
+<img width="1909" height="855" alt="image" src="https://github.com/user-attachments/assets/0351ec51-dd70-4f56-b6ee-05659e316b8a" />
+
+
+Made By: Aashna Jain
