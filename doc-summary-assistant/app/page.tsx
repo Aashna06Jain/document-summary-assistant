@@ -12,7 +12,7 @@ export default function Home() {
   const [showExtracted, setShowExtracted] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null); // ✅ NEW
 
-  const backendURL = "http://127.0.0.1:8000"; // change when deployed
+  const backendURL = "https://document-summary-assistant-1-n59r.onrender.com"; // change when deployed
 
   const handleFileChange = (f: File | null) => {
     if (f) setFile(f);
@@ -151,3 +151,4 @@ export default function Home() {
     </div>
   );
 }
+
