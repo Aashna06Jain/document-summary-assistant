@@ -10,9 +10,9 @@ export default function Home() {
   const [loading, setLoading] = useState<boolean>(false);
   const [summaryLength, setSummaryLength] = useState<"short" | "medium" | "long">("medium");
   const [showExtracted, setShowExtracted] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null); // ✅ NEW
+  const [error, setError] = useState<string | null>(null); 
 
-  const backendURL = "https://document-summary-assistant-1-n59r.onrender.com"; // change when deployed
+  const backendURL = "https://document-summary-assistant-1-n59r.onrender.com"; 
 
   const handleFileChange = (f: File | null) => {
     if (f) setFile(f);
@@ -39,7 +39,7 @@ export default function Home() {
       if (res.data.text) {
         setText(res.data.text);
         setShowExtracted(false);
-        setError(null); // ✅ clear error on success
+        setError(null); 
       } else {
         setText(""); 
         setError("❌ Could not extract text from this file type. Please upload PDF, DOC, or TXT.");
@@ -60,7 +60,7 @@ export default function Home() {
         length: summaryLength,
       });
       setSummary(res.data.summary);
-      setError(null); // ✅ clear error on success
+      setError(null); 
     } catch (err) {
       console.error(err);
       setError("❌ Summarization failed. Please try again.");
@@ -151,4 +151,5 @@ export default function Home() {
     </div>
   );
 }
+
 
