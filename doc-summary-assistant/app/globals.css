@@ -19,7 +19,7 @@ body {
 body {
   margin: 0;
   font-family: system-ui, -apple-system, sans-serif;
-  background: linear-gradient(to bottom right, #fef3c7, #fbcfe8, #fde68a); /* pastel yellow → pink */
+  background: linear-gradient(to bottom right, #fef3c7, #fbcfe8, #fde68a);
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -45,3 +45,4 @@ a {
     color-scheme: dark;
   }
 }
+
