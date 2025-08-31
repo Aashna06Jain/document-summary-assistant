@@ -7,17 +7,17 @@ import pytesseract
 from PIL import Image
 from dotenv import load_dotenv
 from google import genai
-import uvicorn  # Needed to run FastAPI on Render
+import uvicorn 
 
 load_dotenv()
 
-# Initialize FastAPI
+
 app = FastAPI()
 
-# CORS for frontend
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Or restrict to your Vercel URL
+    allow_origins=["*"], 
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -62,7 +62,7 @@ async def upload(file: UploadFile = File(...)):
         return {"error": "Unsupported file format"}
 
     os.remove(tmp_path)
-    return {"text": text[:4000]}  # limit to avoid token overflow
+    return {"text": text[:4000]} 
 
 @app.post("/summarize/")
 async def summarize(data: dict):
@@ -89,3 +89,4 @@ async def summarize(data: dict):
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))  # Use Render's PORT
     uvicorn.run(app, host="0.0.0.0", port=port)
+
