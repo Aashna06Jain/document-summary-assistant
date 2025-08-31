@@ -114,7 +114,7 @@
 }
 
 
-/* ✅ Mobile responsiveness */
+/* Mobile responsiveness */
 @media (max-width: 640px) {
   .container {
     padding: 1rem;
@@ -132,7 +132,7 @@
   }
 
   .button {
-    width: 100%; /* full width buttons */
+    width: 100%; 
     font-size: 0.9rem;
     padding: 0.6rem;
   }
@@ -154,4 +154,5 @@
     line-height: 1.3;
   }
 }
+
 
