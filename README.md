@@ -43,29 +43,44 @@ git clone <backend-repo-url>
 cd backend
 ```
 2. **Install dependencies**
+   ```bash
    pip install -r requirements.txt
+   ```
 
 3. **Create .env file with your Gemini API key**
+   ```bash
    GEMINI_API_KEY=your_gemini_api_key_here
+   ```
 
 4. **Run backend locally**
+   ```bash
    uvicorn main:app --host 0.0.0.0 --port 8000
+   ```
 
 5. **Test the API**
+   ```bash
    GET / → should return {"message":"Document Summary Assistant backend is running 🚀"}
-
    POST /upload/ → test document upload
-
    POST /summarize/ → test summarization
+   ```
 
 ---
 
 ## 🔹 Frontend Setup (Next.js)
 
-1. ****
-2. ****
-3. ****
-4. ****
+1. **Clone the frontend repository**
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+3. **Run frontend locally**
+   ```bash
+   npm run dev
+   ```
+4. **Open browser**
+   ```bash
+   http://localhost:3000
+   ```
 
 ---
 
@@ -74,14 +89,20 @@ cd backend
 1. Push backend repo to GitHub
 2. Create a Web Service on Render
 3. Set build and start commands:
+   ```bash
    pip install -r requirements.txt
    uvicorn main:app --host 0.0.0.0 --port $PORT
+   ```
 4. Add environment variable:
+   ```bash
    GEMINI_API_KEY=your_gemini_api_key_here
+   ```
 5. Deploy and verify your backend URL.
 6. Import project into Vercel.
 7. Add environment variable:
+   ```bash
    NEXT_PUBLIC_BACKEND_URL=https://your-backend-url.onrender.com
+   ```
 8. Deploy → Frontend will auto-redeploy on every push.
 
 
