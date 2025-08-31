@@ -7,21 +7,21 @@ import pytesseract
 from PIL import Image
 from dotenv import load_dotenv
 from google import genai
+import uvicorn  # Needed to run FastAPI on Render
 
 load_dotenv()
+
 # Initialize FastAPI
 app = FastAPI()
 
 # CORS for frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["*"],  # Or restrict to your Vercel URL
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-
 
 # Gemini client
 api_key = os.getenv("GEMINI_API_KEY")
@@ -29,8 +29,7 @@ if not api_key:
     raise ValueError("GEMINI_API_KEY not found. Please set it in .env")
 
 client = genai.Client(api_key=api_key)
-
-MODEL_ID = "gemini-2.5-flash"  
+MODEL_ID = "gemini-2.5-flash"
 
 # Text extractors
 def extract_from_pdf(path): return extract_text(path)
@@ -43,7 +42,6 @@ def extract_from_image(path):
 @app.get("/")
 async def root():
     return {"message": "Document Summary Assistant backend is running 🚀"}
-
 
 @app.post("/upload/")
 async def upload(file: UploadFile = File(...)):
@@ -74,7 +72,6 @@ async def summarize(data: dict):
     if not text:
         return {"error": "No text provided"}
 
-    # control summary size
     if length == "short":
         prompt = f"Summarize this document briefly:\n{text}"
     elif length == "long":
@@ -87,3 +84,8 @@ async def summarize(data: dict):
         contents=[{"parts": [{"text": prompt}]}]
     )
     return {"summary": response.text}
+
+# --- Run on Render ---
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))  # Use Render's PORT
+    uvicorn.run(app, host="0.0.0.0", port=port)
